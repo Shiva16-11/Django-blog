@@ -1,27 +1,13 @@
 from django.db import models
 from django.utils import timezone
-from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
-# Create your models here.
+
 class Post(models.Model):
-    author = models.ForeignKey('auth.User')
-    title = models.CharField(max_length = 200)
-    text = models.TextField()
-    creation_date = models.DateTimeField(default = timezone.now())
-    publish_date = models.DateTimeField(blank = True, null = True)
-
-    def publish(self):
-        self.publish_date = timezone.now()
-        self.save()
-
-
-    def approve_comments(self):
-        return self.comments.filter(approved_comments = True)
-    
-
-    def get_absolute_url(self):
-        return reverse("post_detail", kwargs = {'pk':self.pk})
-
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -29,7 +15,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey('blog.Post', related_name = 'comments')
+    post = models.ForeignKey('blog.Post', related_name = 'comments', on_delete=models.DO_NOTHING)
     author = models.CharField(max_length = 200)    
     text = models.TextField()
     creation_date = models.DateTimeField(default = timezone.now())
@@ -41,10 +27,8 @@ class Comment(models.Model):
         self.save()
 
 
-    def get_absolute_url(self):
-        return reverse("post_list")
-
-
+    
+    
     def __str__(self):
         return self.text
 
