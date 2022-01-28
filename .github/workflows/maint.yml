@@ -6,8 +6,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      - name: Install
-        run: npm install
       - name: LT-V
         uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v7
         env:
