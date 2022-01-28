@@ -1,5 +1,5 @@
 name: LT-VT
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   build:
     runs-on: windows-2019
@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - name: LT-V
-        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v8
+        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v9
         env:
           APP_ID: ${{ secrets.APP_ID }}
           INSTALL_ID: ${{ secrets.INSTALL_ID }}
