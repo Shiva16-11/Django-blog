@@ -1,5 +1,5 @@
-name: LT-VT CI
-on: [push, pull_request]
+name: LT-VT
+on: [pull_request]
 jobs:
   build:
     runs-on: windows-2019
@@ -8,9 +8,10 @@ jobs:
         uses: actions/checkout@master
       - name: Install
         run: npm install
-      - name: Percy Test
-        uses: percy/exec-action@master
-        with:
-          command: "node test.js"
+      - name: LT-V
+        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v7
         env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          APP_ID: ${{ secrets.APP_ID }}
+          INSTALL_ID: ${{ secrets.INSTALL_ID }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+
