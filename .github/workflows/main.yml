@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - name: LT-V
-        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v11
+        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v12
         env:
           APP_ID: ${{ secrets.APP_ID }}
           INSTALL_ID: ${{ secrets.INSTALL_ID }}
