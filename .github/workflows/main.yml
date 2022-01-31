@@ -1,7 +1,5 @@
 name: LT-VT
-on: 
-  check_run:
-    type: created
+on: [pull_request]
     
 jobs:
   build:
