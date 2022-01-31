@@ -13,7 +13,3 @@ jobs:
         uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v18
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          APP_ID: ${{ secrets.APP_ID }}
-          INSTALL_ID: ${{ secrets.INSTALL_ID }}
-          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-
