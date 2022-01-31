@@ -9,7 +9,5 @@ jobs:
       - name: LT-V
         uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v8
         env:
-          APP_ID: ${{ secrets.APP_ID }}
           INSTALL_ID: ${{ secrets.INSTALL_ID }}
-          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-
+         
