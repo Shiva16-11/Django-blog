@@ -1,6 +1,5 @@
 name: LT-VT
-on: [check_run]
-    
+on: [check_run]   
 jobs:
   build:
     runs-on: windows-2019
